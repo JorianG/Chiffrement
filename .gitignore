@@ -1,0 +1,5 @@
+*.replit
+*.nix
+*.breakpoint
+chiffrement
+*.ccls-cache
