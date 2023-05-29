@@ -53,8 +53,11 @@ const char* dechiffrerCesar(char* texte, int cle) {
 
     for (int i = 0; i <= strlen(texte)-1; i++) {
         if ((int) texte[i] >= 97 && (int) texte[i] <= 122) {
+          // si c'est un caractère minuscule :
             if ((int) texte[i] - cle < 97) {
+              // si le carctère décaler depasse la borne
                 if ((char)97+ ((int) texte[i] - cle-97) >= 0){
+                  // si le modulo est positif :
                     msgDechiffrer[i] = (char)97+ ((int) texte[i] - cle-97)+26;
                 }else{
                     msgDechiffrer[i] = (char)97+ ((int) texte[i] - cle-97);
@@ -63,10 +66,11 @@ const char* dechiffrerCesar(char* texte, int cle) {
                 msgDechiffrer[i] = (char) (int) texte[i] - cle;
             }
         } else if ((int) texte[i] <= 90 && (int) texte[i] >= 65) {
-
+          // si c'est un caractère majuscule
             if ((int) texte[i] - cle < 65) {
-
+              // si le carctère décaler depasse la borne
                 if ((char)65+ ((int) texte[i] - cle-65) >= 0){
+                  // si le modulo est positif :
                     msgDechiffrer[i] = (char)65+ ((int) texte[i] - cle-65)+26;
                 }else{
                     msgDechiffrer[i] = (char)65+ ((int) texte[i] - cle-65);
@@ -87,8 +91,10 @@ const char* chiffrerCesar(char* texte, int cle) {
     char * msgChiffrer= (char *) malloc (strlen(texte));
     for (int i = 0; i <= strlen(texte)-1; i++) {
         if ((int) texte[i] >= 97 && (int) texte[i] <= 122){
+          // si c'est un caractère minuscule
             msgChiffrer[i] = (char)97+ (((int) texte[i] + cle)-97)%26;
         }else if ((int) texte[i] <= 90 && (int) texte[i] >= 65){
+          // si c'est un caractère majuscule
             msgChiffrer[i] = (char) 65+((((int) texte[i] + cle)-65)%26);
         }else{
             msgChiffrer[i]= texte[i];
