@@ -101,7 +101,7 @@ int main() {
     printf("Entrer un texte à chiffrer/déchiffrer");
     scanf("%s", texte);
     if (is_alphanumeric(texte)) {
-        texte = chiffrerCesar(texte, 15);
+        texte = (char*) chiffrerCesar(texte, 15);
         printf("%s\n", texte);
         printf("%s\n",  dechiffrerCesar(texte, 15));
     }
